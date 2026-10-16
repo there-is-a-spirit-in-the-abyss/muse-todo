@@ -8,6 +8,16 @@ English is the default; Spanish and Portuguese are supported.
 
 ## Deploy with Muse
 
+Attach the complete project archive to Muse and send this instruction:
+
+> Extract this package, read and execute MUSE_PROMPT.md at the project root, and start installation, Skill loading, and reminder acceptance testing now.
+
+Equivalent instruction in Chinese:
+
+> 請解壓這個套件，閱讀並執行套件根目錄的 MUSE_PROMPT.md，直接開始安裝、載入 Skill，並完成提醒功能驗收。
+
+You can also provide the full English deployment prompt directly:
+
 1. Give Muse the complete repository or the current `muse-todo-v1.tar.gz` release
    archive. A private repository requires authorized access; an attached archive
    works without sharing GitHub credentials.
