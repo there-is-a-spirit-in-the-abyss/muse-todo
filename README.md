@@ -1,5 +1,7 @@
 # Muse Todo V1
 
+English | [简体中文](README.zh-CN.md)
+
 **Personal tasks and native reminders, managed through conversation in Muse.**
 
 Muse Todo is a Skill-based plugin with a local SQLite database. Add a task,
@@ -11,10 +13,6 @@ English is the default; Spanish and Portuguese are supported.
 Attach the complete project archive to Muse and send this instruction:
 
 > Extract this package, read and execute MUSE_PROMPT.md at the project root, and start installation, Skill loading, and reminder acceptance testing now.
-
-Equivalent instruction in Chinese:
-
-> 請解壓這個套件，閱讀並執行套件根目錄的 MUSE_PROMPT.md，直接開始安裝、載入 Skill，並完成提醒功能驗收。
 
 You can also provide the full English deployment prompt directly:
 
@@ -69,8 +67,8 @@ Old V1 installations without a setting default to English. Unsupported locale
 values are rejected without changes. Repeating `init` never changes a saved
 language; use `settings.set`.
 
-In Muse, explicitly ask “Use Spanish”, “Cambia el idioma a portugués”, or
-“Muda o idioma para inglês”. Titles stay in the language you wrote them.
+In Muse, explicitly ask to use English, Spanish, or Portuguese.
+Titles stay in the language you wrote them.
 Spanish uses general wording; Portuguese uses contemporary orthography and
 region-neutral wording where possible under `pt`. Language selection does not
 change timezone or date parsing. JSON keys, status values, markers and IDs
