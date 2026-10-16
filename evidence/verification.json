@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-16T16:49:26.591199+00:00",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "command": "python -m unittest discover -s tests -v",
+  "python_tests": {
+    "status": "passed",
+    "exit_code": 0,
+    "evidence": "python-tests.txt",
+    "external_cron": "simulated test boundary only"
+  },
+  "compileall": {
+    "exit_code": 0
+  },
+  "muse_agent_tools": {
+    "status": "not_run",
+    "reason": "No Muse runtime access; deployment Agent must test"
+  },
+  "native_end_to_end": {
+    "status": "not_run",
+    "reason": "Requires real natural language, cron and delivery"
+  },
+  "old_poc_removal": {
+    "status": "not_run",
+    "reason": "Only backup/quarantine tools tested in disposable fixtures"
+  },
+  "periodic_maintenance": {
+    "status": "not_deployed",
+    "reason": "Requires Muse native periodic Agent job"
+  }
+}

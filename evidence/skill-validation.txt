@@ -1,0 +1,2 @@
+2026-10-16 language update. Official quick_validate.py; PyYAML installed only in a disposable validation directory.
+Skill is valid!
