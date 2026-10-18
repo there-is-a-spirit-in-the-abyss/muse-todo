@@ -1,51 +1,77 @@
-# Muse 个人任务 V1
+# Muse Todo · 对话待办与提醒
 
 [English](README.md) | 简体中文
 
-**在 Muse 中通过对话管理个人任务和原生提醒。**
+## 功能
 
-这是一个基于技能的 Muse 插件，使用本地 SQLite 数据库。
-可以用自然语言添加任务、修改截止时间、完成任务或取消提醒。
-应用默认使用英文，支持切换西班牙语和葡萄牙语。
-本页是中文项目说明，不代表插件已经支持中文回复。
+**把要做的事告诉 Muse，让它帮你记下来，并在约定时间提醒你。**
 
-## 在 Muse 中部署
+- **对话记待办**：用自然语言添加、查询、修改、完成或删除任务，不用手动维护另一份清单。
+- **自动安排提醒**：告诉 Muse 什么时候提醒；修改时间、完成任务或取消提醒后，同步更新对应的原生定时任务。
+- **记录持续保存**：任务保存在 Muse 工作环境中的本地 SQLite 数据库，后续对话可以继续查询和管理。
+- **无需额外服务器**：在 Muse 环境中运行，无需接入飞书或另建网页服务。
 
-将完整项目压缩包附加到 Muse，然后发送以下指令：
+### 使用案例：晚上 21:00 开组会
 
-> 请解压这个套件，阅读并执行套件根目录的 MUSE_PROMPT.md，直接开始安装、加载技能，并完成提醒功能验收。
+向 Muse 说：
 
-也可以直接提供完整部署提示词：
+> 你能在 21:00 提醒我开组会吗？
 
-1. 将完整仓库或当前发布的 `muse-todo-v1.tar.gz` 交给 Muse。
-   私有仓库需要授权访问；直接附加压缩包无需分享 GitHub 凭据。
-2. 打开 **[部署提示词](MUSE_PROMPT.md)**，将其中完整的英文内容复制给 Muse。
-3. Muse 会按照部署流程加载技能，连接原生定时任务与通知工具，并执行实际验收。
-   最终报告会说明是否就绪、验证证据以及平台限制。
+Muse 确认提醒时间，并将“开组会”记入待办清单。下面是提供的对话截图，依次展示提出需求和设置结果：
 
-部署后可以使用以下英文指令：
+<img src="docs/images/muse-reminder-request.jpg" alt="向 Muse 请求在 21:00 提醒开组会" width="640">
+
+<img src="docs/images/muse-reminder-confirmation.jpg" alt="Muse 确认已设置 21:00 的提醒，并将开组会记入待办" width="640">
+
+截图展示对话案例；提醒的实际送达需要在自己的 Muse 环境中完成部署验收。
+插件默认英文，支持西班牙语和葡萄牙语；本页及案例中的中文不代表插件已支持中文回复。
+
+## 下载
+
+**[下载 Muse Todo 完整项目 ZIP](https://github.com/there-is-a-spirit-in-the-abyss/muse-todo/archive/refs/heads/main.zip)**
+
+[GitHub 项目地址](https://github.com/there-is-a-spirit-in-the-abyss/muse-todo)。下载的是完整项目包，无需另选桌面安装器。
+仓库目前为私有，访问及下载需要有权限的 GitHub 账号；也可以把下载好的完整 ZIP 直接发送给 Muse。
+
+## 安装与部署
+
+**将下面这一条指令连同仓库地址发给 Muse：**
 
 ```text
-Add a task to buy groceries tomorrow at 6 PM and remind me 30 minutes before.
-Show my open tasks.
-Move the grocery task to Friday at 7 PM.
-Mark the grocery task as complete.
-Use Spanish.
+请从 https://github.com/there-is-a-spirit-in-the-abyss/muse-todo 获取完整项目，阅读并执行根目录的 MUSE_PROMPT.md，完成安装、技能加载和原生提醒的实际验收。已有安装请先备份并保留现有任务数据。
 ```
 
-上述示例依次表示添加买菜任务并提前提醒、查看未完成任务、修改时间、完成任务和切换语言。
-Muse 会使用已确认的时区，时间含义不明确时会询问。
-重复部署会保留已有安装数据。插件需要 Python 3.11 及以上版本、SQLite，
-以及能够为智能体安排任务并提供 Python 执行和通知权限的 Muse 工具。
-提醒能否实际使用，需要在部署时完成验证。
+如果 Muse 无法访问私有仓库，先将上方下载的完整 ZIP 附加给它，再发送：
 
-## 工作原理
+```text
+请解压我附上的 Muse Todo 完整项目包，阅读并执行根目录的 MUSE_PROMPT.md，完成安装、技能加载和原生提醒的实际验收。已有安装请先备份并保留现有任务数据。
+```
+
+Muse 会按项目中的部署流程检查环境、加载技能、连接原生定时任务与通知，并报告验收结果。
+运行环境需要 Python 3.11+、SQLite，以及可执行 Python、安排定时任务和发送通知的 Muse 工具权限。
+部署不需要另外购买服务器或填写飞书配置。
+
+[完整部署提示词](MUSE_PROMPT.md) · [安装、升级与回退](docs/DEPLOYMENT.md) · [部署交接说明](docs/MUSE_HANDOFF.md)
+
+<details>
+<summary>查看提供给 Muse 的部署对话示例</summary>
+
+下面的截图是旧版交接指令示例；当前安装请使用上方指令和仓库中的最新部署文档。
+
+<img src="docs/images/muse-deployment-example.jpg" alt="将完整 Muse Todo 压缩包和部署交接说明发送给 Muse 的示例" width="420">
+
+</details>
+
+<details>
+<summary>技术说明、语言设置与本地验证</summary>
+
+### 工作原理
 
 项目由 Muse 技能、Python 标准库、SQLite 和原生定时任务组成，
 支持任务的创建、查询、修改、删除，以及事务发件箱、幂等请求、版本检查、
 持久化同步、状态核对、提醒发送前校验和旧版概念验证数据的可逆备份。
 
-## 语言设置
+### 语言设置
 
 使用 `{"command":"init","timezone":"UTC"}` 初始化，可以添加
 `"locale":"es"` 或 `"locale":"pt"`，分别使用西班牙语或葡萄牙语。
@@ -84,7 +110,7 @@ python bin/poc.py --locale pt inspect --workspace /absolute/path/to/workspace
 
 详见[语言设计](docs/DESIGN_LANGUAGES.md)和[语言实现计划](docs/PLAN_LANGUAGES.md)。
 
-## 本地运行
+### 本地运行
 
 ```sh
 python -m unittest discover -s tests -v
@@ -96,7 +122,7 @@ python bin/todo.py --db /absolute/path/to/new-v1.db --input init.json
 无需通过 pip 安装第三方依赖，也不需要服务器或飞书凭据。
 程序接受标准输入，并使用 UTF-8 处理文本输入与输出。
 
-## 文件说明
+### 文件说明
 
 | 路径 | 用途 |
 |---|---|
@@ -112,7 +138,7 @@ python bin/todo.py --db /absolute/path/to/new-v1.db --input init.json
 | `references/CRON_BRIDGE.md` | 原生定时任务工具的智能体协议 |
 | `evidence/` | 本地验证输出与测试分类 |
 
-## 验证边界
+### 验证边界
 
 本地测试验证 Python、SQLite 和协调协议。原生工具来自独立的 Muse 环境。
 本地验证不涉及 SSH 连接，也不修改现有 Muse 安装。
@@ -129,3 +155,5 @@ python bin/todo.py --db /absolute/path/to/new-v1.db --input init.json
 历史检查见[原始测试报告](evidence/TEST_REPORT.md)。
 源码发布包不包含已安装数据库或真实任务。
 仓库当前为私有，仅获得访问权限的用户可以查看。
+
+</details>

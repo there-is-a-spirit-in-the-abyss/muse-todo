@@ -1,46 +1,69 @@
-# Muse Todo V1
+# Muse Todo · Conversational tasks and reminders
 
 English | [简体中文](README.zh-CN.md)
 
-**Personal tasks and native reminders, managed through conversation in Muse.**
+## Features
 
-Muse Todo is a Skill-based plugin with a local SQLite database. Add a task,
-change its deadline, complete it, or cancel its reminder using natural language.
-English is the default; Spanish and Portuguese are supported.
+**Tell Muse what you need to do. Let it keep the task and remind you at the right time.**
 
-## Deploy with Muse
+- **Manage tasks through conversation:** add, find, edit, complete or delete todos in natural language.
+- **Schedule native reminders:** set a reminder time and keep it in sync when you reschedule, finish or cancel a task.
+- **Keep a lasting task record:** tasks are stored in a local SQLite database in your Muse environment, ready for later conversations.
+- **No separate server:** runs inside your Muse environment without Feishu or a separate web service.
 
-Attach the complete project archive to Muse and send this instruction:
+### Example: a meeting at 21:00
 
-> Extract this package, read and execute MUSE_PROMPT.md at the project root, and start installation, Skill loading, and reminder acceptance testing now.
+Ask Muse to remind you about a meeting at 21:00. It confirms the time and records the meeting in your task list.
+These supplied screenshots show the request and the confirmation in Chinese:
 
-You can also provide the full English deployment prompt directly:
+<img src="docs/images/muse-reminder-request.jpg" alt="A request asking Muse for a meeting reminder at 21:00" width="640">
 
-1. Give Muse the complete repository or the current `muse-todo-v1.tar.gz` release
-   archive. A private repository requires authorized access; an attached archive
-   works without sharing GitHub credentials.
-2. Open **[MUSE_PROMPT.md](MUSE_PROMPT.md)** and copy its complete English contents
-   into Muse.
-3. Muse follows the supplied deployment procedure, loads the Skill, connects
-   native cron and notifications, and runs live acceptance. Its final report
-   identifies readiness, evidence, and any platform blockers.
+<img src="docs/images/muse-reminder-confirmation.jpg" alt="Muse confirms the reminder and records the meeting in the todo list" width="640">
 
-Try these after deployment:
+The screenshots illustrate the conversation; actual reminder delivery must pass acceptance in your own Muse environment.
+The plugin defaults to English and supports Spanish and Portuguese. The Chinese conversation shown here does not establish Chinese plugin support.
+
+## Download
+
+**[Download the complete Muse Todo ZIP](https://github.com/there-is-a-spirit-in-the-abyss/muse-todo/archive/refs/heads/main.zip)**
+
+[GitHub repository](https://github.com/there-is-a-spirit-in-the-abyss/muse-todo). This is the complete project archive; no desktop installer selection is needed.
+The repository is currently private, so access and downloads require an authorized GitHub account.
+You can attach the downloaded ZIP directly to Muse.
+
+## Installation and deployment
+
+**Send Muse this one instruction with the repository URL:**
 
 ```text
-Add a task to buy groceries tomorrow at 6 PM and remind me 30 minutes before.
-Show my open tasks.
-Move the grocery task to Friday at 7 PM.
-Mark the grocery task as complete.
-Use Spanish.
+Get the complete project from https://github.com/there-is-a-spirit-in-the-abyss/muse-todo, read and execute MUSE_PROMPT.md at the project root, and complete installation, Skill loading and live native-reminder acceptance. Back up any existing installation and preserve its task data.
 ```
 
-Muse uses your confirmed timezone and asks when a time is ambiguous. Existing
-installation data is preserved on repeat deployment. The plugin requires Python
-3.11+, SQLite support, and Muse tools that can schedule an Agent with Python and
-notification access. Live reminder readiness is established during deployment.
+If Muse cannot access the private repository, attach the complete ZIP above and send:
 
-## How it works
+```text
+Extract the complete Muse Todo project archive attached to this message, read and execute MUSE_PROMPT.md at the project root, and complete installation, Skill loading and live native-reminder acceptance. Back up any existing installation and preserve its task data.
+```
+
+Muse follows the supplied procedure to check its environment, load the Skill, connect native scheduling and notifications, and report acceptance results.
+Its runtime needs Python 3.11+, SQLite, and Muse tools with Python execution, scheduling and notification access.
+No separate server or Feishu credentials are required.
+
+[Full deployment prompt](MUSE_PROMPT.md) · [Installation, upgrades and rollback](docs/DEPLOYMENT.md) · [Deployment handoff](docs/MUSE_HANDOFF.md)
+
+<details>
+<summary>View the supplied deployment conversation</summary>
+
+This screenshot shows an earlier handoff instruction. Use the instructions above and the current repository documents for installation.
+
+<img src="docs/images/muse-deployment-example.jpg" alt="Sending the complete Muse Todo archive and deployment instructions to Muse" width="420">
+
+</details>
+
+<details>
+<summary>Technical details, languages and local verification</summary>
+
+### How it works
 
 Personal todos for Muse Agent, with a Skill, Python 3.11+ standard library,
 SQLite and native cron. English (`en-US`) is the default; Spanish (`es`) and
@@ -48,7 +71,7 @@ Portuguese (`pt`) are selectable. Includes CRUD, a transactional outbox,
 idempotent requests, version checks, durable synchronization, reconciliation,
 gated reminder delivery, and reversible old-PoC backup tools.
 
-## Language selection
+### Language selection
 
 Initialize with `{"command":"init","timezone":"UTC"}`. Optionally include
 `"locale":"es"` or `"locale":"pt"`. On an existing installation send either
@@ -83,7 +106,7 @@ existing safeguards. PoC administration has no installation database; put
 See [language design](docs/DESIGN_LANGUAGES.md) and
 [implementation plan](docs/PLAN_LANGUAGES.md).
 
-## Run locally
+### Run locally
 
 ```sh
 python -m unittest discover -s tests -v
@@ -95,7 +118,7 @@ Use `{"command":"init","timezone":"UTC"}` in `init.json`. See the
 installation, server or Feishu credentials are required. The program accepts
 stdin and uses UTF-8 for Unicode input and output.
 
-## Included files
+### Included files
 
 | Path | Purpose |
 |---|---|
@@ -111,7 +134,7 @@ stdin and uses UTF-8 for Unicode input and output.
 | references/CRON_BRIDGE.md | Agent protocol for native cron tools |
 | evidence/ | Local verification output and test classifications |
 
-## Verification limits
+### Verification limits
 
 Local tests verify Python, SQLite and the coordination protocol. Native tools
 come from a separate Muse environment. No SSH access or modification of the
@@ -131,3 +154,5 @@ current results and the [original test report](evidence/TEST_REPORT.md) for
 historical checks. Source releases contain no installed database or real tasks.
 The repository is initially private. Only users granted access can view it;
 public promotion can follow a later visibility change.
+
+</details>
