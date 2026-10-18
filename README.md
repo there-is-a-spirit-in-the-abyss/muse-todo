@@ -2,6 +2,14 @@
 
 English | [简体中文](README.zh-CN.md)
 
+## English product walkthrough
+
+A conversational to-do plugin for Muse: save tasks, schedule native reminders, reschedule in chat, and start deployment with a project package plus setup instructions.
+
+https://github.com/user-attachments/assets/d785c131-eef3-442f-9161-5c4223abfedc
+
+*English interface and demo data · Instrumental music and sound effects · No voice-over.*
+
 ## Features
 
 **Tell Muse what you need to do. Let it keep the task and remind you at the right time.**
