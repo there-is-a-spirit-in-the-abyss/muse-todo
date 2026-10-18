@@ -2,6 +2,8 @@
 
 [English](README.md) | 简体中文
 
+**[▶ B 站视频：Muse Todo，一句话安排待办和提醒](https://www.bilibili.com/video/BV1oUnG6SETN/)**
+
 ## 功能
 
 **把要做的事告诉 Muse，让它帮你记下来，并在约定时间提醒你。**
